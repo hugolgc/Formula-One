@@ -8,11 +8,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <header className="pt-8 pb-16">
-          <nav className="space-x-8 font-semibold text-xl">
-            <Link to="/">Pilotes</Link>
-            <Link to="/teams">Équipes</Link>
-            <Link to="/races">Courses</Link>
+        <header className="px-4 pt-8 pb-16">
+          <nav className="space-y-4 md:space-y-0 md:flex md:space-x-8 font-semibold text-xl">
+            <Link to="/" className="block">Pilotes</Link>
+            <Link to="/teams" className="block">Équipes</Link>
+            <Link to="/races" className="block">Courses</Link>
           </nav>
         </header>
         <Switch>

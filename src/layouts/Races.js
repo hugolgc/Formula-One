@@ -6,8 +6,7 @@ const Race = ({ element }) => {
   return (
     <tr>
       <td className="p-2">{ element.round }</td>
-      <td className="p-2">{ element.date }</td>
-      <td className="p-2">{ element.time }</td>
+      <td className="p-2">{ (new Date(`${element.date}T${element.time}`)).toDateString() }</td>
       <td className="p-2">{ element.Circuit.circuitName }</td>
       <td className="p-2 space-x-2">
         <span>{ element.Circuit.Location.locality }</span>
@@ -33,12 +32,11 @@ class Races extends Component {
 
   render() {
     return (
-      <table className="table-auto w-full">
+      <table className="table-auto w-full min-w-192 overflow-x">
         <thead>
           <tr className="text-left text-gray-500 px-2">
             <th className="p-2 font-normal">Pos</th>
             <th className="p-2 font-normal">Date</th>
-            <th className="p-2 font-normal"></th>
             <th className="p-2 font-normal">Circuit</th>
             <th className="p-2 font-normal">Pays</th>
           </tr>
@@ -47,7 +45,7 @@ class Races extends Component {
         {
           this.state.races.length ?
           this.state.races.map(race => <Race key={race.round} element={race} /> ) :
-          <Waiting rows={15} columns={6} />
+          <Waiting rows={15} columns={5} />
         }
         </tbody>
       </table>

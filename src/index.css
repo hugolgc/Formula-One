@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.min-w-192 {
+  min-width: 48rem;
+}
