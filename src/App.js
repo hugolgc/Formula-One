@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
+import Drivers from './layouts/Drivers'
+import Constructors from './layouts/Constructors'
+import Races from './layouts/Races'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <header className="pt-8 pb-16">
+          <nav className="space-x-8 font-semibold text-xl">
+            <Link to="/">Pilotes</Link>
+            <Link to="/teams">Équipes</Link>
+            <Link to="/races">Courses</Link>
+          </nav>
+        </header>
+        <Switch>
+          <Route exact path="/">
+            <Drivers />
+          </Route>
+          <Route path="/teams">
+            <Constructors />
+          </Route>
+          <Route path="/races">
+            <Races />
+          </Route>
+          <Redirect to="/"/>
+        </Switch>
+      </Router>
+    ) 
+  }
 }
 
-export default App;
+export default App
